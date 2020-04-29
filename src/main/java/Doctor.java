@@ -9,8 +9,9 @@ public class Doctor {
         id++;
     }
 
-    Doctor(String nombre){
-        System.out.println("El nombre del doctor es: " + nombre);
+    Doctor(String nombre, String especialidad){
+        this.nombre = nombre;
+        this.especialidad = especialidad;
     }
 
     public void muestraNombre(){
@@ -19,5 +20,13 @@ public class Doctor {
 
     public void muestraId() {
         System.out.println("Id del doctor: " + id);
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "nombre='" + nombre + '\'' +
+                ", especialidad='" + especialidad + '\'' +
+                '}';
     }
 }
