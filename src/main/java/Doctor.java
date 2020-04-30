@@ -1,20 +1,13 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User {
 
-    static int id;
-    String nombre;
     String especialidad;
 
-    Doctor(){
-        System.out.println("Constructor del Doctor");
-        id++;
-    }
-
-    Doctor(String nombre, String especialidad){
-        this.nombre = nombre;
-        this.especialidad = especialidad;
+    Doctor(String nombre, String email){
+        super(nombre, email);
+        System.out.println("Especialidad del doctor: " + especialidad);
     }
 
     public void muestraNombre(){
@@ -25,13 +18,6 @@ public class Doctor {
         System.out.println("Id del doctor: " + id);
     }
 
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "nombre='" + nombre + '\'' +
-                ", especialidad='" + especialidad + '\'' +
-                '}';
-    }
 
     ArrayList<CitaDisponible> citasDisponibles = new ArrayList<CitaDisponible>();
     public void generaCitaDisponible(Date fecha, String hora){
@@ -40,6 +26,14 @@ public class Doctor {
 
     public ArrayList<CitaDisponible>  obtenCitaGenerada(){
         return citasDisponibles;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 
     public static class CitaDisponible{
@@ -75,5 +69,23 @@ public class Doctor {
         public void setHora(String hora) {
             this.hora = hora;
         }
+
+        @Override //Este es al implementarse dentro de la subclase
+        public String toString() {
+            return "CitaDisponible{" +
+                    "fecha=" + fecha +
+                    ", hora='" + hora + '\'' +
+                    '}';
+        }
     }
+
+    @Override //Este toString sobreescrito es para la primera parte del curso
+    public String toString() {
+        return "Doctor{" +
+                "nombre='" + nombre + '\'' +
+                ", especialidad='" + especialidad + '\'' +
+                '}';
+    }
+
+
 }
