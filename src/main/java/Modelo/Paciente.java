@@ -1,4 +1,8 @@
-public class Paciente extends User{
+package Modelo;
+
+import Modelo.User;
+
+public class Paciente extends User {
 
     String cumple;
     private double peso;
@@ -35,7 +39,7 @@ public class Paciente extends User{
 
     @Override
     public String toString() {
-        return "Paciente{" +
+        return "Modelo.Paciente{" +
                 "cumple='" + cumple + '\'' +
                 ", peso=" + peso +
                 ", altura=" + altura +

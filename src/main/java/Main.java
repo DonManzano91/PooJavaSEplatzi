@@ -1,7 +1,7 @@
-import static UI.UIMenu.*;
+import Modelo.Doctor;
+import Modelo.Paciente;
 
 import java.util.Date;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,13 +15,13 @@ public class Main {
         doctor.generaCitaDisponible(new Date(), "4pm");
         doctor.generaCitaDisponible(new Date(), "5pm");
 
-        System.out.println("Datos del Doctor que imprime con toString mod: " + doctor.toString());
+        System.out.println("Datos del Modelo.Doctor que imprime con toString mod: " + doctor.toString());
         //Para el foreach dentro de un arrayList, instanciar objeto que se llene, este sera de la clase del arrayList
         //:
         //invocar el metodo con el cual se recorra ese objeto o se podra obtener un get
         for (Doctor.CitaDisponible citasDisponibles:
              doctor.obtenCitaGenerada()) {
-            System.out.println("con toString modificado citas disponibles: " + citasDisponibles.toString());
+            System.out.println("con  toString modificado citas disponibles: " + citasDisponibles.toString());
             System.out.println("Cita generada: " + citasDisponibles.getFecha() + " " + citasDisponibles.getHora());
         }
 

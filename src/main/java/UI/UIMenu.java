@@ -11,7 +11,7 @@ public class UIMenu {
 
         int response = 0;
         do {
-            System.out.println("1. Doctor");
+            System.out.println("1. Modelo.Doctor");
             System.out.println("2. Patient");
             System.out.println("0. Salir");
 
@@ -20,7 +20,7 @@ public class UIMenu {
 
             switch (response){
                 case 1:
-                    System.out.println("Doctor");
+                    System.out.println("Modelo.Doctor");
                     break;
                 case 2:
                     response = 0;

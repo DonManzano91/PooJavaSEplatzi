@@ -1,3 +1,7 @@
+package Modelo;
+
+import Modelo.User;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -5,7 +9,7 @@ public class Doctor extends User {
 
     String especialidad;
 
-    Doctor(String nombre, String email){
+    public Doctor(String nombre, String email){
         super(nombre, email);
         System.out.println("Especialidad del doctor: " + especialidad);
     }
@@ -81,7 +85,7 @@ public class Doctor extends User {
 
     @Override //Este toString sobreescrito es para la primera parte del curso
     public String toString() {
-        return "Doctor{" +
+        return "Modelo.Doctor{" +
                 "nombre='" + nombre + '\'' +
                 ", especialidad='" + especialidad + '\'' +
                 '}';
