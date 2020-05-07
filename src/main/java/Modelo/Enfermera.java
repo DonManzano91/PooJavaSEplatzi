@@ -8,6 +8,11 @@ public class Enfermera extends User {
         super(nombre, email);
     }
 
+    @Override
+    public void muestraDatosUsuarios() {
+        System.out.println("La enfermera esta en el hospial medica Sur");
+    }
+
     public String getEspecialidad() {
         return especialidad;
     }

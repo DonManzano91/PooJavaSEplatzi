@@ -13,6 +13,11 @@ public class Paciente extends User {
         super(nombre, email);
     }
 
+    @Override
+    public void muestraDatosUsuarios() {
+        System.out.println("El paciente esta en solo un hospital a la vez");
+    }
+
     public String getCumple() {
         return cumple;
     }

@@ -1,6 +1,8 @@
 package Modelo;
 
-public class User {
+/*Se añade la implementación de clase abstracto dado que la clase User es demasiado general para
+* aplicar herencia.*/
+public abstract class User {
 
     int id;
     String nombre;
@@ -52,4 +54,9 @@ public class User {
     public void setNumeroTelefonico(String numeroTelefonico) {
         this.numeroTelefonico = numeroTelefonico;
     }
+
+    /* Estos Metodos se quedan sin llaves, y sin codigo, solo se les da comportamiento
+    cuando se herede/implemente
+     */
+    public abstract void muestraDatosUsuarios();
 }

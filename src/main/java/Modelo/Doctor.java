@@ -4,7 +4,7 @@ import Modelo.User;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/*Cuando User es Abstracta, no se pueden instanciar objetos de dicha clase aqui*/
 public class Doctor extends User {
 
     String especialidad;
@@ -12,6 +12,12 @@ public class Doctor extends User {
     public Doctor(String nombre, String email){
         super(nombre, email);
         System.out.println("Especialidad del doctor: " + especialidad);
+    }
+
+    /*Esta es la implementación de un metodo abstracto, definido en la clase padre*/
+    @Override
+    public void muestraDatosUsuarios() {
+        System.out.println("El doctor pertenece al hospital angeles");
     }
 
     public void muestraNombre(){
