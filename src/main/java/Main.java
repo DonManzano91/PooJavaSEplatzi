@@ -1,5 +1,6 @@
 import Modelo.Doctor;
 import Modelo.Paciente;
+import Modelo.User;
 
 import java.util.Date;
 
@@ -28,6 +29,17 @@ public class Main {
         Paciente paciente = new Paciente("Alejandro", "a@email.com");
         //paciente.peso = 10; //Esta asignación falla debido a que se le coloco un modificador de acceso al campo asociado
         System.out.println(paciente);
+
+        User usuario = new User("Ale", "a@e.com"){
+            //Asi instanciamos una clase abstracta, usando el metodo abstracto que esta definido ahi
+            @Override
+            public void muestraDatosUsuarios() {
+                System.out.println("Comportamiento creado clase anonima");
+                System.out.println("Doctor Alejandro");
+            }
+        };
+
+        usuario.muestraDatosUsuarios();
 
     }
 }
