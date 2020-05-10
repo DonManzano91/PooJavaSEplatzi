@@ -4,14 +4,16 @@ import Modelo.User;
 
 import java.util.Date;
 
+import static UI.UIMenu.showMenu;
+
 public class Main {
     public static void main(String[] args) {
 
         //Ejemplo implementación metodos static
-        //showMenu();
+        showMenu();
 
         //Ejemplo de sobrecarga de metodo constructor
-        Doctor doctor = new Doctor("Alejandro","Nefrologo");
+        /*Doctor doctor = new Doctor("Alejandro","Nefrologo");
 
         doctor.generaCitaDisponible(new Date(), "4pm");
         doctor.generaCitaDisponible(new Date(), "5pm");
@@ -39,7 +41,7 @@ public class Main {
             }
         };
 
-        usuario.muestraDatosUsuarios();
+        usuario.muestraDatosUsuarios();*/
 
     }
 }
