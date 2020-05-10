@@ -2,6 +2,8 @@ package Modelo;
 
 import Modelo.User;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 /*Cuando User es Abstracta, no se pueden instanciar objetos de dicha clase aqui*/
@@ -30,7 +32,8 @@ public class Doctor extends User {
 
 
     ArrayList<CitaDisponible> citasDisponibles = new ArrayList<CitaDisponible>();
-    public void generaCitaDisponible(Date fecha, String hora){
+    public void generaCitaDisponible(String fecha, String hora){
+
         citasDisponibles.add(new CitaDisponible(fecha, hora));
     }
 
@@ -50,9 +53,15 @@ public class Doctor extends User {
         private int id;
         private Date fecha;
         private String hora;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
 
-        public CitaDisponible(Date fecha, String hora) {
-            this.fecha = fecha;
+        public CitaDisponible(String fecha, String hora) {
+            try { //Este tipo de parseo requiere validar una excepción
+                this.fecha = formato.parse(fecha);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                System.out.println("No se pudo parsear la fecha: " + e);
+            }
             this.hora = hora;
         }
 
@@ -66,6 +75,10 @@ public class Doctor extends User {
 
         public Date getFecha() {
             return fecha;
+        }
+
+        public String getFecha(String fecha){
+            return formato.format(fecha); //Metodo generado para el parseo inverso Date-String
         }
 
         public void setFecha(Date fecha) {

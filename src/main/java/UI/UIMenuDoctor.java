@@ -1,8 +1,15 @@
 package UI;
 
+import Modelo.Doctor;
+
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIMenuDoctor {
+
+    //Esta varianles estatica nos dara la funcionalidad de persistencia
+    public static ArrayList<Doctor> citasDisponiblesPorDoctor = new ArrayList<>();
 
     public static void muestraMenuDoctor(){
         int respuesta = 0;
@@ -55,11 +62,33 @@ public class UIMenuDoctor {
                 String date = sc.nextLine();
                 System.out.println("Tu fecha es: " + date
                     +"\n1. Correcto \n2. Cambiar fecha");
+                int fechaRespuesta = Integer.valueOf(sc.nextLine());
+                if (fechaRespuesta == 2 ) continue; /*Continue deja que se salte lo sig, reinicia el ciclo desde este
+                                                    punto*/
+                int horaRespuesta = 0;
+                String hora = "";
+                do{
+                    System.out.println("Inserta la hora deseada para el día: " + date
+                    + " [16:00]");
+                    hora = sc.nextLine();
+                    System.out.println("Tu hora es: " + hora
+                            +"\n1. Correcto \n2. Cambiar fecha");
+                    horaRespuesta = Integer.valueOf(sc.nextLine());
+                }while (horaRespuesta == 2);
+
+                UIMenu.doctorLogueado.generaCitaDisponible(date, hora);
+
 
             }else if (respuesta == 0){
                 muestraMenuDoctor();
             }
         }while(respuesta!=0);
+    }
+
+    public static void revisaCitasDispoiniblesPorDoctor(Doctor doctor){
+        if (doctor.obtenCitaGenerada().size() > 0 && !citasDisponiblesPorDoctor.contains(doctor)){
+            citasDisponiblesPorDoctor.add(doctor);
+        }
     }
 
 
