@@ -41,6 +41,7 @@ public class UIMenu {
                     break;
                 default:
                     System.out.println("Please select a correct answer");
+                    break;
             }
         }while (response != 0); //Si da true, da otro ciclo
     }

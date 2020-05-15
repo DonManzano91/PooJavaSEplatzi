@@ -78,6 +78,7 @@ public class UIMenuDoctor {
                 }while (horaRespuesta == 2);
 
                 UIMenu.doctorLogueado.generaCitaDisponible(date, hora);
+                checkDoctorAvailableAppointments(UIMenu.doctorLogueado);
 
 
             }else if (respuesta == 0){
@@ -86,7 +87,7 @@ public class UIMenuDoctor {
         }while(respuesta!=0);
     }
 
-    public static void revisaCitasDispoiniblesPorDoctor(Doctor doctor){
+    public static void checkDoctorAvailableAppointments(Doctor doctor){
         if (doctor.obtenCitaGenerada().size() > 0 && !citasDisponiblesPorDoctor.contains(doctor)){
             citasDisponiblesPorDoctor.add(doctor);
         }
