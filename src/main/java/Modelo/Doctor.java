@@ -13,7 +13,6 @@ public class Doctor extends User {
 
     public Doctor(String nombre, String email){
         super(nombre, email);
-        System.out.println("Especialidad del doctor: " + especialidad);
     }
 
     /*Esta es la implementación de un metodo abstracto, definido en la clase padre*/
@@ -32,6 +31,7 @@ public class Doctor extends User {
 
 
     ArrayList<CitaDisponible> citasDisponibles = new ArrayList<CitaDisponible>();
+
     public void generaCitaDisponible(String fecha, String hora){
 
         citasDisponibles.add(new CitaDisponible(fecha, hora));
@@ -73,11 +73,11 @@ public class Doctor extends User {
             this.id = id;
         }
 
-        public Date getFecha() {
+        public Date getFecha(String FECHA) {
             return fecha;
         }
 
-        public String getFecha(String fecha){
+        public String getFecha(){
             return formato.format(fecha); //Metodo generado para el parseo inverso Date-String
         }
 
@@ -106,7 +106,7 @@ public class Doctor extends User {
     public String toString() {
         return "Modelo.Doctor{" +
                 "nombre='" + nombre + '\'' +
-                ", especialidad='" + especialidad + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 

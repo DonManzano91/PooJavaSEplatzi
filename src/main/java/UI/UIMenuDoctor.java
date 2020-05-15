@@ -27,6 +27,7 @@ public class UIMenuDoctor {
             switch (respuesta){
                 case 1:
                     System.out.println("Aqui estan sus citas disponibles");
+                    muestraMenuCitasDisponibles();
                     break;
                 case 2:
                     System.out.println("Aqui estan sus citas ya agendadas");
@@ -47,7 +48,7 @@ public class UIMenuDoctor {
             System.out.println("Elige el mes: ");
             for (int i = 0; i <= 3; i++){
                 int j = i +1;
-                System.out.println(j + " . "+ UIMenu.MONTHS);
+                System.out.println(j + " . "+ UIMenu.MONTHS[i]);
             }
             System.out.println("0. Regresar");
 
@@ -57,7 +58,7 @@ public class UIMenuDoctor {
             if (respuesta > 0 && respuesta < 4){
                 int mesSeleccionado = respuesta;
                 System.out.println(mesSeleccionado + " . " +
-                        UIMenu.MONTHS[mesSeleccionado]);
+                        UIMenu.MONTHS[mesSeleccionado -1]);
                 System.out.println("Inserta la fecha disponible [dd/mm/yyyy]");
                 String date = sc.nextLine();
                 System.out.println("Tu fecha es: " + date

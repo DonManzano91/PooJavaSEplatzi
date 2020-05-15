@@ -10,6 +10,11 @@ public class CitasDoctor implements  ICitacionable{
     private Date fecha;
     private String hora;
 
+    public CitasDoctor(Paciente paciente, Doctor doctor) {
+        this.paciente = paciente;
+        this.doctor = doctor;
+    }
+
     public int getId() {
         return id;
     }
@@ -43,7 +48,7 @@ public class CitasDoctor implements  ICitacionable{
     }
 
     public String getHora() {
-        return hora;
+        return hora + " hrs ";
     }
 
     public void setHora(String hora) {
@@ -52,6 +57,8 @@ public class CitasDoctor implements  ICitacionable{
 
     @Override
     public void citacion(Date fecha, String hora) {
+        this.fecha=fecha;
+        this.hora=hora;
 
     }
 }

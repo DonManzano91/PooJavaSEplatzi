@@ -4,6 +4,7 @@ import Modelo.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static UI.UIMenuDoctor.*;
+import static UI.UIMenuPaciente.muestraPacienteMenu;
 
 public class UIMenu {
     public static final String[] MONTHS = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
@@ -17,7 +18,7 @@ public class UIMenu {
 
         int response = 0;
         do {
-            System.out.println("1. Modelo.Doctor");
+            System.out.println("1. Doctor");
             System.out.println("2. Patient");
             System.out.println("0. Salir");
 
@@ -26,12 +27,14 @@ public class UIMenu {
 
             switch (response){
                 case 1:
-                    System.out.println("Modelo.Doctor");
+                    System.out.println("Doctor");
+                    System.out.println("valor de response "+response);
+                    response = 0;
+                    authUser(1);
                     break;
                 case 2:
                     response = 0;
-                    showPatientMenu();
-
+                    authUser(2);
                     break;
                 case 0:
                     System.out.println("Thank you for you visit");
@@ -39,7 +42,7 @@ public class UIMenu {
                 default:
                     System.out.println("Please select a correct answer");
             }
-        }while (response != 0);
+        }while (response != 0); //Si da true, da otro ciclo
     }
 
     static void showPatientMenu(){
@@ -88,19 +91,22 @@ public class UIMenu {
             System.out.println("agrega tu dirección de correo");
             Scanner sn = new Scanner(System.in);
             String email = sn.nextLine();
+            System.out.println("tipoUsuario: " + tipoUsuario);
             if (tipoUsuario == 1){
                 for (Doctor d: doctors){
-                    d.getEmail().equals(email);
-                    emailCorrecto = true; /*Se encontro el doctor en los reg, se loguea*/
-                    doctorLogueado = d;/*Esto cuenta como login correcto para el doc*/
-                    muestraMenuDoctor();
+                    if (d.getEmail().equals(email)) {
+                        emailCorrecto = true; /*Se encontro el doctor en los reg, se loguea*/
+                        doctorLogueado = d;/*Esto cuenta como login correcto para el doc*/
+                        UIMenuDoctor.muestraMenuDoctor();
+                    }
                 }
             }else if (tipoUsuario == 2){
                 for (Paciente p: pacientes){
-                    p.getEmail().equals(email);
-                    emailCorrecto = true; /*Se encontro el doctor en los reg, se loguea*/
-                    pacienteLogueado = p;/*Esto cuenta como login correcto para el paciente*/
-                    //muestraMenuPaciente();
+                    if (p.getEmail().equals(email)) {
+                        emailCorrecto = true; /*Se encontro el doctor en los reg, se loguea*/
+                        pacienteLogueado = p;/*Esto cuenta como login correcto para el paciente*/
+                        muestraPacienteMenu();
+                    }
                 }
             }
 
